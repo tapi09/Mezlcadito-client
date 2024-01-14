@@ -1,0 +1,21 @@
+<div class="container">
+  <h2 class="text-center">Players</h2>
+  <div class="row">
+    <div *ngFor="let player of players" class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ player.name }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Skills</h6>
+          <div class="skill-info">
+            <p class="card-text">Attack: {{ player.attack }}</p>
+            <p class="card-text">Defense: {{ player.defense }}</p>
+            <p class="card-text">Speed: {{ player.speed }}</p>
+          </div>
+          <small class="text-muted">Active: {{ player.active }}</small>
+          <br/>
+          <button class="btn btn-primary" (click)="switch(player.id)">Enable / Disable</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

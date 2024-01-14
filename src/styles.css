@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    background-image: url('assets/images/konstantin-evdokimov-JP0qiWQzjrg-unsplash.jpg');
+    background-size: cover;
+    /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+    background-repeat: no-repeat;
+    /* Evita que la imagen se repita */
+}
+
+.card {
+    background-image: url('assets/images/justus-menke-pD7Wf1T1Cpg-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff; /* Color de texto blanco para destacar en el fondo */
+    padding: 20px; /* Ajustar el relleno para separar el texto del borde de la tarjeta */
+  }
+  
+  .card-title {
+    font-size: 1.5rem; /* Ajustar el tamaño de la fuente del título */
+    margin-bottom: 10px; /* Añadir espacio debajo del título */
+  }
+  
+  .card-text {
+    font-size: 1.2rem; /* Ajustar el tamaño de la fuente del texto */
+    margin-bottom: 8px; /* Añadir espacio debajo del texto */
+  }
+  
+  .text-muted {
+    font-size: 0.9rem; /* Ajustar el tamaño de la fuente del texto pequeño */
+  }
+  
