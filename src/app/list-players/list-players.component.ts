@@ -3,16 +3,19 @@ import { Player } from '../player';
 import { CommonModule } from '@angular/common';
 import { PlayerService } from '../player.service';
 import { Subscription } from 'rxjs';
+import { RouterModule, RouterOutlet } from '@angular/router';
 
 
 @Component({
   selector: 'app-list-players',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterOutlet, RouterModule],
   templateUrl: './list-players.component.html',
   styleUrl: './list-players.component.css'
 })
 export class ListPlayersComponent implements OnInit {
+
+  showList: Boolean;
 
   player: Player;
 
@@ -25,6 +28,7 @@ export class ListPlayersComponent implements OnInit {
   ngOnInit(): void {
     this.getPlayerList();
     this.subscribeToPlayerListChanges();
+    this.showList = true;
   }
 
   ngOnDestroy(): void {
@@ -35,6 +39,13 @@ export class ListPlayersComponent implements OnInit {
   switch(id: any): void {
     this.switchPlayer(id);
   }
+  delete(id: any): void {
+    this.deletePlayerById(id);
+  }
+  show(): void{
+    this.showList = false;
+  }
+  
 
   private getPlayerList() {
     this.playerService.getPlayerList().subscribe(data => {
@@ -54,6 +65,19 @@ export class ListPlayersComponent implements OnInit {
       }
     );
   }
+  private deletePlayerById(id: number){
+    this.playerService.delete(id).subscribe(
+      () => {
+        // Operación exitosa, notificar y actualizar la lista
+        this.playerService.notifyPlayerListUpdated();
+      },
+      (error) => {
+        console.error('Error during switch:', error);
+        // Manejar el error si la solicitud falla
+      }
+    );
+
+  }
   private subscribeToPlayerListChanges(): void {
     // Suscribirse al Subject para detectar cambios
     this.playerListSubscription = this.playerService.getPlayerListUpdated().subscribe(() => {
@@ -62,4 +86,5 @@ export class ListPlayersComponent implements OnInit {
     });
   }
 }
+
 

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="showList">
   <h2 class="text-center">Players</h2>
   <div class="row">
     <div *ngFor="let player of players" class="col-md-4 mb-4">
@@ -11,11 +11,24 @@
             <p class="card-text">Defense: {{ player.defense }}</p>
             <p class="card-text">Speed: {{ player.speed }}</p>
           </div>
-          <small class="text-muted">Active: {{ player.active }}</small>
+          <div *ngIf="player.active; else notShow">
+            <span class="d-inline-block" data-toggle="popover" data-content="Disabled popover">
+              <button class="btn btn-success" style="pointer-events: none;" type="button" disabled>Ready</button>
+            </span>
+          </div>
+          <ng-template #notShow>
+            <span class="d-inline-block" data-toggle="popover" data-content="Disabled popover">
+              <button class="btn btn-danger" style="pointer-events: none;" type="button" disabled>Unready</button>
+            </span>
+          </ng-template>
+          
           <br/>
           <button class="btn btn-primary" (click)="switch(player.id)">Enable / Disable</button>
+          <button class="btn btn-danger" (click)="delete(player.id)">Delete Player</button>
+          <button class="btn btn-danger" >Update Player</button>
         </div>
       </div>
-    </div>
   </div>
+  <button class="btn btn-success"  routerLink="/new-player" (click)="show()">Crear Nuevo Jugador</button>
 </div>
+

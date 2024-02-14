@@ -18,11 +18,17 @@ export class PlayerService {
   getPlayerList():Observable<Player[]>{
     return this.httpClient.get<Player[]>(this.baseURL+"/all");
   }
+  getActivePlayerList():Observable<Player[]>{
+    return this.httpClient.get<Player[]>(this.baseURL+"/active-players");
+  }
   getPlayerById(id:number) {
     return this.httpClient.get<Player>(this.baseURL + "/" + id);
   }
   switch(id: number) : Observable<any>{
     return this.httpClient.get(this.baseURL + "/switch/" + id);
+  }
+  delete(id:number) : Observable<any>{
+    return this.httpClient.delete(this.baseURL +"/" + id)
   }
   getPlayerListUpdated(): Observable<void> {
     return this.playerListUpdated.asObservable();
@@ -31,5 +37,11 @@ export class PlayerService {
   // Método para notificar cambios
   notifyPlayerListUpdated() {
     this.playerListUpdated.next();
+  }
+  createPlayer(player:Player):Observable<Player>{
+    return this.httpClient.post<Player>(this.baseURL, player);
+  }
+  updatePlayer(id: number, player: Player): Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/${id}`, player);
   }
 }
