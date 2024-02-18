@@ -1,0 +1,36 @@
+.vs {
+    font-size: 3em; /* Tamaño grande */
+    color: orange; /* Color inicial */
+    /* Animación */
+    animation: cambio-color 3s infinite alternate; /* Duración, alternar colores infinitamente */
+  }
+.equipo-titulo {
+    font-size: 2em; /* Tamaño grande */
+    font-weight: bold; /* Negrita */
+    color: #333; /* Color de texto */
+    margin-bottom: 20px; /* Margen inferior */
+    background-color: #f8f9fa; /* Color de fondo */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+  }
+.jugador {
+    animation: aparecer 0.5s ease forwards;
+  }
+  
+  @keyframes cambio-color {
+    0% { color: orange; } /* Color inicial */
+    50% { color: red; } /* Color intermedio */
+    100% { color: yellow; } /* Color final */
+  }
+  @keyframes aparecer {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+ 

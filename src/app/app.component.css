@@ -1,0 +1,20 @@
+.navbar {
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.bg-gradient {
+    background: linear-gradient(to right, #ff9933, #ff5050);
+}
+
+.animated-button {
+    transition: all 0.3s ease;
+    background-color: #ff9933; /* Fondo de color sólido */
+    border-color: #ff9933; /* Borde del mismo color */
+    color: white; /* Texto blanco */
+}
+
+.animated-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+}

@@ -1,4 +1,4 @@
-<div class="container" *ngIf="showList">
+<div class="player-list" *ngIf="showList">
   <h2 class="text-center">Players</h2>
   <div class="row">
     <div *ngFor="let player of players" class="col-md-4 mb-4">
@@ -10,6 +10,7 @@
             <p class="card-text">Attack: {{ player.attack }}</p>
             <p class="card-text">Defense: {{ player.defense }}</p>
             <p class="card-text">Speed: {{ player.speed }}</p>
+            <p class="card-text">Goalkeeper: {{ player.goalKeeper}}</p>
           </div>
           <div *ngIf="player.active; else notShow">
             <span class="d-inline-block" data-toggle="popover" data-content="Disabled popover">

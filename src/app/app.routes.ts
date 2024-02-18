@@ -9,6 +9,5 @@ export const APP_ROUTES: Routes = [
     { path: '', redirectTo: '' , pathMatch: "full" },
     { path: 'list-player', component: ListPlayersComponent},
     { path: 'active-players', component: ActivePlayersListComponent},
-    { path: 'new-game', component: GameComponent},
-    
+    { path: 'new-game', component: GameComponent}, 
   ];

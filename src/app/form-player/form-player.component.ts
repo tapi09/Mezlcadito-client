@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators,ReactiveFormsModule } from '@angular/forms';
 import { PlayerService } from '../player.service';
-import { Route, Router, RouterModule, RouterOutlet } from '@angular/router';
-import { APP_ROUTES } from '../app.routes';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { ListPlayersComponent } from '../list-players/list-players.component';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-form-player',
   standalone: true,
-  imports: [RouterModule, ReactiveFormsModule,RouterOutlet,ListPlayersComponent],
+  imports: [RouterModule, ReactiveFormsModule,RouterOutlet,ListPlayersComponent, CommonModule],
   templateUrl: './form-player.component.html',
   styleUrl: './form-player.component.css'
 })
@@ -20,10 +20,10 @@ export class FormPlayerComponent {
     this.playerForm = this.fb.group({
       // Define tus campos del formulario y las validaciones necesarias aquí
       name: ['', Validators.required],
-      attack: [0, Validators.required],
-      defense: [0, Validators.required],
-      goalkeeper: [false, Validators.required],
-      speed: [0, Validators.required],
+      attack: ['', [Validators.required, Validators.pattern('[0-9]{1,2}')]],
+      defense: ['', [Validators.required, Validators.pattern('[0-9]{1,2}')]],
+      speed: ['', [Validators.required, Validators.pattern('[0-9]{1,2}')]],
+      goalkeeper: [false, Validators.required], 
     });
   }
   onSubmit(): void {

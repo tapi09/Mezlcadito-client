@@ -3,7 +3,6 @@ import { Game } from '../game';
 import { GameService } from '../game.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { Team } from '../team';
 
 @Component({
   selector: 'app-game',
@@ -25,7 +24,6 @@ export class GameComponent {
   private createGame(){
     this.gameService.createGame().subscribe(data => {
     this.game= data;
-    console.log(data.team_a);
     });
   }
 

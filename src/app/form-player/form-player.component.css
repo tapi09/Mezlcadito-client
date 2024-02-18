@@ -1,0 +1,37 @@
+.card {
+    margin-top: 50px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-title {
+    color: #333;
+  }
+  
+  .card-body {
+    padding: 40px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  /* Estilos para los campos de entrada */
+  .form-control {
+    border-radius: 5px;
+  }
+  
+  /* Estilos para el botón */
+  .btn-success {
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .btn-success:hover {
+    background-color: #218838;
+  }

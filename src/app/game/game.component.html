@@ -1,13 +1,28 @@
-<div *ngFor="let player of game.teamA.players" class="col-md-4 mb-4">
-    <div class="card">
+<div class="row justify-content-center align-items-center">
+  <!-- Equipo A -->
+  <div class="col-md-5">
+    <h2 class="text-center equipo-titulo">Equipo A</h2>
+    <div *ngFor="let player of game?.team_a?.players" class="card mb-4 jugador">
       <div class="card-body">
-        <h5 class="card-title">{{ player.name }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Skills</h6>
-        <div class="skill-info">
-          <p class="card-text">Attack: {{ player.attack }}</p>
-          <p class="card-text">Defense: {{ player.defense }}</p>
-          <p class="card-text">Speed: {{ player.speed }}</p>
-        </div>
+        <h5 class="card-title">{{ player?.name }}</h5>
+        <!-- Detalles adicionales del jugador -->
       </div>
     </div>
+  </div>
+  
+  <!-- VS -->
+  <div class="col-md-2 text-center">
+    <h1 class="vs">VS</h1>
+  </div>
+  
+  <!-- Equipo B -->
+  <div class="col-md-5">
+    <h2 class="text-center equipo-titulo">Equipo B</h2>
+    <div *ngFor="let player of game?.team_b?.players" class="card mb-4 jugador">
+      <div class="card-body">
+        <h5 class="card-title">{{ player?.name }}</h5>
+        <!-- Detalles adicionales del jugador -->
+      </div>
+    </div>
+  </div>
 </div>
